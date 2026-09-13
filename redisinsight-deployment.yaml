@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisinsight
+  labels:
+    app: redisinsight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisinsight
+  template:
+    metadata:
+      labels:
+        app: redisinsight
+    spec:
+      containers:
+      - name: redisinsight
+        image: 1234567.dkr.ecr.ap-south-1.amazonaws.com/redisinsight:latest
+        ports:
+        - containerPort: 5540
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
