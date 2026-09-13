@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  externalName: master.demo-private.kvuqll.aps1.cache.amazonaws.com
+  selector:
+    app: redis
+  type: ExternalName
+status:
+  loadBalancer: {}
